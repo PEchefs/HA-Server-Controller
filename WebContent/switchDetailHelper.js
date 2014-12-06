@@ -21,19 +21,25 @@
 	    var text = $button.attr('id');
 	  /*  alert($("button:contains('ON')")); */
 	  /*  alert(text); */
-	   if(text.indexOf("ON") >= 0){
+	    
+	    
+	    
+	  /* if(text.indexOf("ON") >= 0){
 		   text = text.replace("ON", "OFF");
-		   /* alert("inside if condition"); */
-		  /* $("button").val(text);*/
+		    alert("inside if condition"); 
+		   $("button").val(text);
 		   $button.attr('id',text);
 		   $button.prop('value', "OFF");
 	   }else {
 		   text = text.replace("OFF", "ON");
-		  /*  alert("inside else condition"); */
-		  /* $("button").val(text);*/
+		    alert("inside else condition"); 
+		   $("button").val(text);
 		   $button.attr('id',text);
 		   $button.prop('value', "ON");
-	   }
+	   }*/
+	   
+	   
+	   
 	 /*   $( "button[value*='OFF']" ).prop('value', "ON"); */
 	   
 	  /*  if(($(button).attr('value')).contains("ON"))

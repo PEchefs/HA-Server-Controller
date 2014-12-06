@@ -3,6 +3,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@page import="java.util.List"%>
+ <%@ page session="true"%>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="myStyle.css" media="screen" />
@@ -26,12 +27,20 @@ src="<%=request.getContextPath()%>/js/jquery.js"></script>
 </head>
 <body>
 
-<span id="date_time"></span>
-            <script type="text/javascript" >window.onload = date_time('date_time');</script>
+	<div>
+		<span id="date_time"></span>
+        <script type="text/javascript" >window.onload = date_time('date_time');</script>
             
             <br/>
             <br/>
-            
+     </div>
+     
+     <div>
+    	<input type="button" id="logout"  onclick="location.href = 'logout.jsp';" value = "Log out"/>
+    </div>
+       
+            <br/>
+            <br/>      	
    
   <%
 List swts = (List)session.getAttribute("swts"); 

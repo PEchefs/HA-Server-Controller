@@ -3,10 +3,14 @@ package com.test.resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class PECNode {
 
 	private String nodeName = "Node Undefined";
-	private  int nodeId;
+	private  String nodeId;
+	
+	@JsonProperty("switches")
 	private List<Switch> switches;
 	
 	public PECNode() {
@@ -22,11 +26,11 @@ public class PECNode {
 		this.nodeName = nodeName;
 	}
 	
-	public int getNodeId() {
+	public String getNodeId() {
 		return nodeId;
 	}
 	
-	public void setNodeId(int nodeId) {
+	public void setNodeId(String nodeId) {
 		this.nodeId = nodeId;
 	}
 	

@@ -1,8 +1,14 @@
 package com.test.resources;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Switch {
 	private String switchName = "Switch Undefined";
+	
+	@JsonProperty("switchId")
 	private int switchId ;
+	
+	@JsonProperty("switchState")
 	private boolean switchState;
 	
 	public Switch(String switchName, int switchId, boolean switchState) {

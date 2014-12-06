@@ -25,6 +25,7 @@ import com.test.persistence.DBQueries;
 import com.test.resources.PECNode;
 import com.test.resources.Room;
 import com.test.resources.Switch;
+import com.test.resources.SwitcheDetailsContainer;
 
 /**
  * Servlet implementation class AddProfilesDataProvider
@@ -86,18 +87,22 @@ public class AddProfilesDataProvider extends HttpServlet {
  
         // 3. Convert received JSON to Article
         Test article = mapper.readValue(json, Test.class);
+        System.out.println("article " + article.add);
  
         // 4. Set response type to JSON
         response.setContentType("application/json");            
  
         // 5. Add article to List<Article>
-        List articles = new ArrayList(); 
-        articles.add(article);
+//        List articles = new ArrayList(); 
+//        articles.add(article);
         
-        System.out.println("sending json" + json);
- 
-        // 6. Send List<Article> as JSON to client
-        mapper.writeValue(response.getOutputStream(), articles);
+//        System.out.println("sending json" + json + " " + articles.get(0));
+        
+        SwitcheDetailsContainer infoContainer = new SwitcheDetailsContainer(roomObjects);
+//        infoContainer.setRoomsList(roomObjects);
+        
+        // 6. Send List<Room> as JSON to client
+        mapper.writeValue(response.getOutputStream(), infoContainer);
 		
 	}
     	
@@ -159,7 +164,7 @@ public class AddProfilesDataProvider extends HttpServlet {
     		                
     		                 PECNode node = new PECNode();
     		                 node.setNodeName(rs.getString("node_name"));
-    		                 node.setNodeId(rs.getInt("node_id"));
+    		                 node.setNodeId(rs.getString("node_id"));
     		                 roomObj.getNodes().add(node);
     		                 System.out.println("node created");
     		            }
@@ -200,7 +205,7 @@ public class AddProfilesDataProvider extends HttpServlet {
     					for(PECNode node : nodeObjs){
     											
     		            ps = con.prepareStatement(DBQueries.GET_SWITCH_DETAILS);
-    		            ps.setInt(1, node.getNodeId());
+    		            ps.setString(1, node.getNodeId());
     		            rs = ps.executeQuery();
     		            if(rs != null){
     		            while( rs.next()){

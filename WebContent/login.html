@@ -1,74 +1,127 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Home Automation welcomes you!</title>
+  <link rel="stylesheet" type="text/css" href="/loginstyle.css">
+  
+  
+  <style>
+.login {
+  margin: 50px auto;
+  padding: 18px 20px;
+  width: 500px;
+  background: #3f65b7;
+  background-clip: padding-box;
+  border: 1px solid #172b4e;
+  border-bottom-color: #142647;
+  border-radius: 5px;
+  background-image: -webkit-radial-gradient(cover, #437dd6, #3960a6);
+  background-image: -moz-radial-gradient(cover, #437dd6, #3960a6);
+  background-image: -o-radial-gradient(cover, #437dd6, #3960a6);
+  background-image: radial-gradient(cover, #437dd6, #3960a6);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.1), 0 2px 10px rgba(0, 0, 0, 0.5);
 
-<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="date_time.js"></script>
-        
-<title>HA</title>
+  }
+.login > h1 {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 0 -1px rgba(1, 0, 1, 0.4);
+}
+
+.login-input {
+  display: block;
+  width: 80%;
+  height: 37px;
+   margin-left:10%;
+  margin-bottom: 20px;
+  padding: 0 9px;
+  color: white;
+  text-shadow: 0 1px black;
+  background: #2b3e5d;
+  border: 1px solid #15243b;
+  border-top-color: #0d1827;
+  border-radius: 4px;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 20%, rgba(0, 0, 0, 0));
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.2);
  
- <body>
- 
-  <span id="date_time"></span>
-            <script type="text/javascript" >window.onload = date_time('date_time');</script>
-            
-            <br/>
-            
-            
-            
- <div id="login"> 
-<h3>Login with password</h3>
+}
+.login-input:focus {
+  outline: 0;
+  background-color: #32486d;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 4px 1px rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 4px 1px rgba(255, 255, 255, 0.6);
+}
+.lt-ie9 .login-input {
+  line-height: 35px;
+}
 
-<form id="myAjaxRequestForm" action="ServerController" method="post">
-        <fieldset>
-            <legend>Access details here</legend>
+.login-submit {
+  display: block;
+  width: 40%;
+  height: 37px;
+   margin-left:30%;
+    margin-right:50%;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #294779;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.3);
+  background: #adcbfa;
+  background-clip: padding-box;
+  border: 1px solid #284473;
+  border-bottom-color: #223b66;
+  border-radius: 4px;
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(top, #d0e1fe, #96b8ed);
+  background-image: -moz-linear-gradient(top, #d0e1fe, #96b8ed);
+  background-image: -o-linear-gradient(top, #d0e1fe, #96b8ed);
+  background-image: linear-gradient(to bottom, #d0e1fe, #96b8ed);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 7px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 7px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+.login-submit:active {
+  background: #a4c2f3;
+  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.1);
+}
 
-                <p>
-                    <label for="password">Password:</label><br />
-                    <input id="password" type="password" name="password">
-                </p>
-                <p>
-                   <input type="submit" id="submit"  value="Login"> onclick="sendAjax()"
-                </p>
-        </fieldset>
-    </form>
-   </div>
-   
-   <span id="date_time"></span>
-            <script type="text/javascript">window.onload = date_time('date_time');</script>
-            
-            <br/>
-            
-<form> action="ServerController" method="post" 
-<strong>Password</strong>:<input id="password" type="password" name="password"><br>
-<input type="submit" value="Login" onclick="sendAjax()">
-</form>
+.login-help {
+  text-align: center;
+}
+.login-help > a {
+  font-size: 11px;
+  color: #d4deef;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
+}
+.login-help > a:hover {
+  text-decoration: underline;
+}
 
-<div class="containr">
-</div>
+	  </style>
+	  
+	  
+</head>
+<body>
+  <form method="POST" action="j_security_check" class="login">
+    <h1>Enter passcode</h1>
+    <input type="text" class="login-input" placeholder="Enter your user name" autofocus name="j_username" />
+    <input type="password" class="login-input" placeholder="Enter your passcode" name="j_password"/> 
+    <input type="submit" value="Login" class="login-submit">
+   <!--  <p class="login-help"><a href="index.html">Forgotttttt password?</a></p> -->
+  </form>
 
-<div id="div1">This portion will be refreshed by AJAX response</div> 
-</body> -->
-
-<form method="POST" action="j_security_check">
-<table>
-	<tr>
-		<td colspan="2">Login to the Tomcat-Demo application:</td>
-	</tr>
-	<tr>
-		<td>Name:</td>
-		<td><input type="text" name="j_username" /></td>
-	</tr>
-	<tr>
-		<td>Password:</td>
-		<td><input type="password" name="j_password"/ ></td>
-	</tr>
-	<tr>
-		<td colspan="2"><input type="submit" value="Go" /></td>
-	</tr>
-</table>
-</form>
 
 
 </html>

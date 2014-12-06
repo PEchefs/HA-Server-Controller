@@ -11,7 +11,17 @@ import com.test.persistence.DBQueries;
 
 public final class DBHandlerUtil {
 	
-	public static byte updateSwitchStatus(String nodeId, String statusInfo){
+	
+//	public static byte updateSwitchStatus(String nodeId, String statusInfo){
+	public static byte main(String[] args) {
+		
+		for(int z= 0; z< args.length; z++){
+			System.out.println("the arguments are : " + args[z]);
+		}
+		
+		String nodeId = args[0];
+		String statusInfo = args[1];
+		
 		Connection dbConnection = getConnection();
 		System.out.println("Connection object inside DBHandlerUtil : " + dbConnection);
 		

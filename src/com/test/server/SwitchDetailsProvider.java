@@ -48,6 +48,9 @@ public class SwitchDetailsProvider extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println(" inside Switch Get method \n");
+		doPost(request,response);
+		
 	}
 
 	/**
@@ -56,14 +59,24 @@ public class SwitchDetailsProvider extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println(".............I am here");
+		session = request.getSession();
 		
+		System.out.println("Here inside Switch details provider \n");
+		System.out.println("and session value is : " +   session.getAttribute("switchesDetail"));
+		System.out.println("request.getParameter(button1) is : " + request.getParameter("button1"));
+		String room = request.getParameter("button1");
+		
+		if(room == null){
+			 room = (String) session.getAttribute("switchesDetail");
+		}else{
+			 session.setAttribute("switchesDetail", room);
+		}
 		
 		logger.info("Inside fetching switches class  ");
-    	String room = request.getParameter("button1");
-    	System.out.println("room is : " + request.getParameter("button1"));
+//    	String room = request.getParameter("button1");
+    
     	
-    	 session = request.getSession();
+    	
       
          Connection con = (Connection) getServletContext().getAttribute("DBConnection");
          System.out.println("using connection obj here to fetch node switches" + con);
@@ -86,6 +99,9 @@ public class SwitchDetailsProvider extends HttpServlet {
             getSWDetails(con);
 
             session.setAttribute("swts", swts);
+            
+            response.addHeader("Refresh", "5");
+            
             RequestDispatcher rd = request.getRequestDispatcher("/SwDisplay.jsp");
     		System.out.println("forwarding");
     		rd.forward(request, response);

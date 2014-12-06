@@ -131,7 +131,7 @@ public class RoomNamesProvider extends HttpServlet {
 					for(PECNode node : nodeObjs){
 											
 		            ps = con.prepareStatement(DBQueries.GET_SWITCH_DETAILS);
-		            ps.setInt(1, node.getNodeId());
+		            ps.setString(1, node.getNodeId());
 		            rs = ps.executeQuery();
 		            if(rs != null){
 		            while( rs.next()){
@@ -194,7 +194,7 @@ public class RoomNamesProvider extends HttpServlet {
 		                
 		                 PECNode node = new PECNode();
 		                 node.setNodeName(rs.getString("node_name"));
-		                 node.setNodeId(rs.getInt("node_id"));
+		                 node.setNodeId(rs.getString("node_id"));
 		                 roomObj.getNodes().add(node);
 		                 System.out.println("node created");
 		            }
